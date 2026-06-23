@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Кафе</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/@twa-dev/sdk@22/dist/sdk-web-components.min.js" async></script>
+</head>
+<body>
+    <div id="app">
+        <header class="header">
+            <button class="back-btn hidden" id="backBtn" onclick="goBack()">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+            </button>
+            <h1 class="header-title" id="headerTitle">Кафе</h1>
+            <div class="header-spacer"></div>
+        </header>
+
+        <main class="content" id="content">
+            <div id="homeView" class="view active">
+                <div class="hero">
+                    <div class="hero-glow"></div>
+                    <h2 class="hero-title">Добро пожаловать</h2>
+                    <p class="hero-subtitle">Выберите категорию из меню</p>
+                </div>
+                <div class="categories-grid" id="categoriesGrid"></div>
+            </div>
+
+            <div id="productsView" class="view">
+                <div class="section-header">
+                    <h2 id="categoryTitle"></h2>
+                </div>
+                <div class="products-list" id="productsList"></div>
+            </div>
+
+            <div id="variantsView" class="view">
+                <div class="product-hero" id="productHero">
+                    <div class="product-hero-bg"></div>
+                    <h2 id="variantProductTitle"></h2>
+                    <p id="variantProductDesc"></p>
+                </div>
+                <div class="variants-list" id="variantsList"></div>
+            </div>
+
+            <div id="successView" class="view">
+                <div class="success-card">
+                    <div class="success-icon">
+                        <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                    </div>
+                    <h2>Заказ отправлен!</h2>
+                    <p id="successDetails"></p>
+                    <button class="btn-primary" onclick="goHome()">Вернуться в меню</button>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <div class="toast hidden" id="toast"></div>
+    <div class="loader-overlay hidden" id="loader">
+        <div class="spinner"></div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
