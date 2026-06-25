@@ -93,3 +93,4 @@ def test_get_nonexistent():
     assert get_variant(99999) is None
     assert get_product(99999) is None
     assert get_order(99999) is None
+

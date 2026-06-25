@@ -7,7 +7,7 @@ on:
     branches: [main, master]
 
 jobs:
-  test:
+  unit-tests:
     runs-on: ubuntu-latest
 
     steps:
@@ -22,15 +22,33 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
-          pip install pytest
 
-      - name: Run tests
+      - name: Run unit tests
         run: |
-          cd cafe-bot
-          python -m pytest tests/ -v
+          python -m pytest cafe_bot/tests/test_database.py cafe_bot/tests/test_bot_worker.py -v
+
+  server-tests:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Run server tests
+        run: |
+          python -m pytest cafe_bot/tests/test_server.py -v
 
   block-merge:
-    needs: test
+    needs: [unit-tests, server-tests]
     runs-on: ubuntu-latest
     if: failure()
     steps:
