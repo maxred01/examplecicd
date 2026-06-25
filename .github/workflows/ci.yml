@@ -46,7 +46,7 @@ jobs:
 
       - name: Run server tests
         run: |
-          cd cafe-bot
+          cd cafe_bot
           python -m pytest tests/test_server.py -v
 
   block-merge:
