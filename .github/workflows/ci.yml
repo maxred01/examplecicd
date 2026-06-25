@@ -25,7 +25,7 @@ jobs:
 
       - name: Run unit tests
         run: |
-          cd cafe-bot
+          cd cafe_bot
           python -m pytest tests/test_database.py tests/test_bot_worker.py -v
 
   server-tests:
