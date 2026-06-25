@@ -9,7 +9,7 @@ os.environ["WORKER_CHAT_ID"] = "12345"
 os.environ["SERVER_URL"] = "http://localhost:8000"
 os.environ["SECRET_TOKEN"] = "test_secret"
 
-from cafe_bot.bot_worker import format_order
+from bot_worker import format_order
 
 
 def test_format_order_default_header():

@@ -25,7 +25,7 @@ jobs:
 
       - name: Run unit tests
         run: |
-          python -m pytest cafe_bot/tests/test_database.py tests/test_bot_worker.py -v
+          python -m pytest cafe_bot/tests/test_database.py cafe_bot/tests/test_bot_worker.py -v
 
   server-tests:
     runs-on: ubuntu-latest
