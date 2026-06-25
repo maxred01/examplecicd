@@ -25,8 +25,7 @@ jobs:
 
       - name: Run unit tests
         run: |
-          cd cafe_bot
-          python -m pytest tests/test_database.py tests/test_bot_worker.py -v
+          python -m pytest cafe_bot/tests/test_database.py tests/test_bot_worker.py -v
 
   server-tests:
     runs-on: ubuntu-latest
@@ -46,8 +45,7 @@ jobs:
 
       - name: Run server tests
         run: |
-          cd cafe_bot
-          python -m pytest tests/test_server.py -v
+          python -m pytest cafe_bot/tests/test_server.py -v
 
   block-merge:
     needs: [unit-tests, server-tests]
